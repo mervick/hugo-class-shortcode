@@ -1,0 +1,12 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+{{- $class := .Get "class" | default (.Get 0) -}}
+{{- $tag := .Get "tag" | default "[^\\>]*" -}}
+{{- $limit := .Get "limit" | default 0 -}}
+{{- $re := print "<(" $tag ")(>|\\s)" -}}
+{{- $to := print "<$1 class=\"" $class "\"$2" -}}
+{{ if not (eq $limit 0) }}
+  {{ replaceRE $re $to (.Inner | markdownify) $limit | safeHTML }}
+{{ else }}
+  {{ replaceRE $re $to (.Inner | markdownify) | safeHTML }}
+{{ end }}
