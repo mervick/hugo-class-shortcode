@@ -1,6 +1,6 @@
 # Hugo class shortcode
 
-Shortcode `class` for hugo is the simplest way to inject classes in the markdown. 
+Shortcode `class` for [hugo](https://gohugo.io/) is the simplest way to inject classes in the markdown. 
 
 
 ### Usage
